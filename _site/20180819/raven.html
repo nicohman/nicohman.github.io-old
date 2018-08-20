@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<link rel="stylesheet" href="/assets/css/atom-one-light.css">
+    
+        <title>raven</title>
+		<link rel="stylesheet" type="text/css" href="/assets/css/002.css">
+    
+	<link rel="stylesheet" href="/assets/css/font-awesome.min.css">
+	<link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="/assets/img/favicon.ico" type="image/x-icon">
+	<script src="/assets/js/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="default_title">
+			<img src="/assets/img/mycomputer.png" />
+			
+				<h1>`Yard of Code</h1>
+			
+		</div>
+		<ul class="topbar">
+	<a href="/me"><li><u>A</u>bout</li></a>
+	<a href="https://github.com/nicohman" target="_blank"><li><u>G</u>ithub</li></a>
+	<a href="https://cybre.space/@nicohman" target="_blank"><li><u>M</u>astodon</li></a>
+</ul>
+
+		<div class="tag_list">
+			<ul id="tag-list">
+				<li><a href="/" ><img src="/assets/img/disk.png" />(C:)</a>
+			<ul>
+				
+				
+				<li><a href="/tag/project/" title="project"><img src="/assets/img/folder.ico" />project</a></li>
+				
+			</ul>
+				</li>
+			</ul>
+		</div>
+		<div class="post_list">
+			
+				<ul>
+					
+					<li><a href="/20180819/raven" title="raven"><img src="/assets/img/file.ico" title="raven" />raven</a></li>
+					
+				</ul>
+			
+		</div>
+		<div class="post_total">
+			
+				<div class="left">1 object(s)</div>
+			
+			<div class="right">&nbsp;</div>
+		</div>
+	</div>
+	
+        <div class="content">
+			<div class="post_title">
+				<img src="/assets/img/file.png" />
+				<h1>raven</h1>
+				<a href="/"><div class="btn"><span class="fa fa-times"></span></div></a>
+				<div class="btn btn_max"><span class="fa fa-window-maximize"></span></div>
+				<div class="btn"><span class="fa fa-window-minimize"></span></div>
+			</div>
+			<ul class="topbar">
+				<li>August 19, 2018</li>
+			</ul>
+			<div class="post_content">
+        		<h1 id="raven">Raven</h1>
+
+<p><a href="https://github.com/nicohman/raven">Raven</a> is a rust-based theme manager for linux desktops. It works by defining multiple different ‘options’, like a polybar configuration, or a wallpaper, and then loads them into sequence when asked to. Even if you’re not using a full-on DE, and instead opting for the more minimal WM like i3 or bspwm, you can still get a coherent theme that affects pretty much everything you do. There’s a complete list of options available <a href="https://github.com/nicohman/raven/blob/master/README.md">here</a>. If you want to use it, you can install it at <a href="https://crates.io/crates/raventhemer">crates.io</a> under the name raventhemer. Until recently, it wasn’t a particularly difficult project, but I recently implemented an online package system for people to share their themes, which is where it got more complicated. When you install a theme from <a href="https://demenses.net">ThemeHub</a>, it talks to a NodeJS server with a MongoDB database of themes and users. The code for the server is, of course, open source and available <a href="https://github.com/nicohman/ravenserver">here</a>. It uses a REST api to talk to the server with GET POST requests made via the <a href="https://crates.io/crates/reqwest">reqwest crate</a>. For the purposes of allowing for a third-party client or app to interact with a running ravenserver, I’ll go over each endpoint.</p>
+
+<ul>
+  <li>POST /themes/report
+    <ul>
+      <li>This endpoint reports a theme for a specific reason. Required body fields:
+        <ul>
+          <li>name: The name of the theme you’re reporting</li>
+          <li>reason: The reason the theme is being reported</li>
+          <li>info: Any additional information about the report</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>POST /themes/meta/:name
+    <ul>
+      <li>This endpoint updates the metadata of a specific theme. Required query fields:
+        <ul>
+          <li>token: A valid login token</li>
+          <li>typem: The metadata you’re updating(either screen or description)</li>
+          <li>value: The value to update to</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>POST /themes/users/delete/:user
+    <ul>
+      <li>This endpoint permanently deletes a user’s account and all owned themes. Required query fields:
+        <ul>
+          <li>token: A valid login token</li>
+          <li>pass: The user’s password for verification</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>POST /themes/delete/:name
+    <ul>
+      <li>This endpoint permanently deletes a theme. Required query fields:
+        <ul>
+          <li>token: A valid login token</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>GET /themes/repo/:name
+    <ul>
+      <li>This endpoint returns a tarball of the named theme for downloading.</li>
+    </ul>
+  </li>
+  <li>POST /themes/upload
+    <ul>
+      <li>This endpoint creates or updates a theme. Required query fields:
+        <ul>
+          <li>name: Theme name</li>
+          <li>token: A valid login token</li>
+        </ul>
+      </li>
+      <li>It also requires a multipart tarball of the theme to be uploaded. The maximum size is 50mb.</li>
+    </ul>
+  </li>
+  <li>POST /themes/user/create
+    <ul>
+      <li>This endpoint creates a new user. Required query fields:
+        <ul>
+          <li>name: The new user name. Must be unique</li>
+          <li>pass: The password to sign up with</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>GET /themes/user/login
+    <ul>
+      <li>This endpoint takes a name and password and, if authenticated correctly, returns a login token. Required query fields:
+        <ul>
+          <li>name: Username</li>
+          <li>pass: Password to authenticate with</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+				
+			</div>
+		</div>
+    
+	<script src="/assets/js/001.js"></script>
+	<script src="/assets/js/002.js"></script>
+	<div class="footer">
+		<p>Windows 95 theme by <a href="http://github.com/h01000110" target="_blank">h01000110 (hi)</a> | Code licensed under <a href="https://github.com/h01000110/h01000110.github.io/blob/master/LICENSE" target="_blank">MIT License</a></p>
+	</div>
+</body>
+</html>
