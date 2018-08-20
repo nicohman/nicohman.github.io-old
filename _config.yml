@@ -1,7 +1,5 @@
-<<<<<<< HEAD
 permalink: /:year:month:day/:title
-url:
-        #Your url here
+url: nicohman.github.io
 baseurl: 
 # variables
 name: "`Yard of Code"
@@ -23,6 +21,3 @@ kramdown:
   input: GFM
   syntax_highlighter_opts:
     disable : true
-=======
-theme: jekyll-theme-minimal
->>>>>>> 3aa22c7db767d6ade20aa10b45a4302667d48700
