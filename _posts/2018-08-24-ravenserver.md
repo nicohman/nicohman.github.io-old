@@ -1,12 +1,14 @@
 ---
 layout: default
 title: "ravenserver"
-tags: js, project
+tags: js project
 ---
 
 # ravenserver
 
 [ravenserver](https://github.com/nicohman/ravenserver) is a NodeJS-based online repository/package manager for [raven](https://github.com/nicohman/raven) themes. It runs off of Express, with a MongoDB Database for storage. The MongoDB database has collections for users and themes, all of which are manipulated through a REST API, which both the web interface and raven make requests to. For the purposes of allowing for a third-party client or app to interact with a running ravenserver, I'll go over each endpoint.
+
+### API
 
 - POST /themes/report
 	- This endpoint reports a theme for a specific reason. Required body fields:
@@ -48,4 +50,16 @@ tags: js, project
 		- name: Username
 		- pass: Password to authenticate with
 
+### Installation
 
+To set up your own instance, it's pretty easy. First, grab the code:
+
+	git clone https://github.com/nicohman/ravenserver
+
+Then, you'll need to set up a MongoDB database on the server. It should be named themes, and ravenserver will handle the rest of the setup. Now, you're pretty much ready to go. Just start it up!
+
+	node app.js
+
+I personally recommend using [pm2](https://github.com/Unitech/pm2) to manage it.
+
+	pm2 start app.js
