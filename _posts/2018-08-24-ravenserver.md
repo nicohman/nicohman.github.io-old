@@ -54,12 +54,12 @@ tags: js project
 
 To set up your own instance, it's pretty easy. First, grab the code:
 
-	git clone https://github.com/nicohman/ravenserver
+*git clone https://github.com/nicohman/ravenserver*
 
 Then, you'll need to set up a MongoDB database on the server. It should be named themes, and ravenserver will handle the rest of the setup. Now, you're pretty much ready to go. Just start it up!
 
-	node app.js
+*node app.js*
 
 I personally recommend using [pm2](https://github.com/Unitech/pm2) to manage it.
 
-	pm2 start app.js
+*pm2 start app.js*

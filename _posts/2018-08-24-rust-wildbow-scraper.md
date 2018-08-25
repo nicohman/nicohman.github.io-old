@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "rws"
-tags: rust, project
+tags: rust project
 ---
 
 # rust-wildbow-scraper
