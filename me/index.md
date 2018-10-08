@@ -8,7 +8,9 @@ My name is Nico Hickman, or usually nicohman online. I am a programmer, proficie
 
 - If you want to talk to me personally about something, you can [email](mailto:nicohman@demenses.net) me
 
-- If you want to talk to me personally seriously, you can send me GPG-encrypted mail via [my GPG key](https://nicohman.github.io/20180828/gpg). 
+- If you want to talk to me personally seriously, you can send me GPG-encrypted mail via [my GPG key](https://nicohman.github.io/20180828/gpg)
+
+- You can also chat to me on [keybase](https://keybase.io/nicohman)
 
 - Otherwise, you can find me on the fediverse at [nicohman@cybre.space](https://cybre.space/@nicohman)
 
