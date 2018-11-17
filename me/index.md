@@ -2,9 +2,9 @@
 layout: me
 title: nicohman
 ---
-My name is Nico Hickman, or usually nicohman online. I am a programmer, proficient mostly in javascript(both client-side with jQuery and server-side with NodeJS), and Rust. I also have capabilities with C++ and Python, though I use those less. I've used MongoDB for most server-side data-storage. You can find my github [here](https://github.com/nicohman), where almost all of my projects are stored. If you want to contact me, there's a few different ways:
+My name is Nico Hickman, or usually nicohman online. I am a programmer, proficient mostly in javascript(both client-side with jQuery and server-side with NodeJS), and Rust. I also have capabilities with C++ and Python, though I use those less. I've used MongoDB for most server-side data-storage. My [sr.ht profile](https://git.sr.ht/~nicohman) holds most of my important projects. You can find my github [here](https://github.com/nicohman), where mirrors of those and my smaller projects are stored. If you want to contact me, there's a few different ways:
 
-- If it's a bug or feature request to do with a specific project, file an issue in the relevant Github repo
+- If it's a bug or feature request to do with a specific project, file an issue in the relevant sr.ht tracker, or if it's on github, in the github repo.
 
 - If you want to talk to me personally about something, you can [email](mailto:nicohman@demenses.net) me
 

@@ -6,7 +6,7 @@ tags: js project
 
 # ravenserver
 
-[ravenserver](https://github.com/nicohman/ravenserver) is a NodeJS-based online repository/package manager for [raven](https://github.com/nicohman/raven) themes. It runs off of Express, with a MongoDB Database for storage. The MongoDB database has collections for users and themes, all of which are manipulated through a REST API, which both the web interface and raven make requests to. For the purposes of allowing for a third-party client or app to interact with a running ravenserver, I'll go over each endpoint.
+[ravenserver](https://git.sr.ht/~nicohman/ravenserver) is a NodeJS-based online repository/package manager for [raven](https://git.sr.ht/~nicohman/raven) themes. It runs off of Express, with a MongoDB Database for storage. The MongoDB database has collections for users and themes, all of which are manipulated through a REST API, which both the web interface and raven make requests to. For the purposes of allowing for a third-party client or app to interact with a running ravenserver, I'll go over each endpoint.
 
 ### API
 
